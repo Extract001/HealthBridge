@@ -20,7 +20,6 @@ class _LoginScreenState extends State<LoginScreen> {
   bool _obscurePassword = true;
   bool _isLoading = false;
   String? _errorMessage;
-  String _selectedPersona = ""; // "patient" or "demo"
 
   @override
   void dispose() {
@@ -70,15 +69,6 @@ class _LoginScreenState extends State<LoginScreen> {
     }
   }
 
-  void _fillPersona(String persona, String username, String password) {
-    setState(() {
-      _selectedPersona = persona;
-      _usernameController.text = username;
-      _passwordController.text = password;
-      _errorMessage = null;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -93,7 +83,7 @@ class _LoginScreenState extends State<LoginScreen> {
               children: [
                 const SizedBox(height: 10),
 
-                // Awesome Hero Branding Header
+                // Hero Branding Header
                 Center(
                   child: Stack(
                     alignment: Alignment.center,
@@ -280,63 +270,6 @@ class _LoginScreenState extends State<LoginScreen> {
 
                 const SizedBox(height: 24),
 
-                // Quick Select Demo Persona Accounts
-                Container(
-                  padding: const EdgeInsets.all(18),
-                  decoration: AppStyles.lavenderBoxDecoration.copyWith(
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        children: [
-                          const Icon(Icons.flash_on_rounded, color: AppColors.primary, size: 18),
-                          const SizedBox(width: 6),
-                          Text(
-                            "Quick Demo Accounts",
-                            style: AppStyles.caption.copyWith(
-                              color: AppColors.primaryDark,
-                              fontWeight: FontWeight.w700,
-                              fontSize: 13,
-                            ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 12),
-                      Row(
-                        children: [
-                          // Patient Account Card
-                          Expanded(
-                            child: _buildPersonaCard(
-                              id: "patient",
-                              title: "Sophia Martinez",
-                              subtitle: "Patient Account",
-                              username: "patient@healthbridge.com",
-                              password: "password123",
-                              icon: Icons.person_rounded,
-                            ),
-                          ),
-                          const SizedBox(width: 12),
-                          // Demo User Card
-                          Expanded(
-                            child: _buildPersonaCard(
-                              id: "demo",
-                              title: "Demo User",
-                              subtitle: "Quick Demo",
-                              username: "demo",
-                              password: "demo123",
-                              icon: Icons.account_circle_rounded,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-
-                const SizedBox(height: 24),
-
                 // Security Note
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -352,76 +285,6 @@ class _LoginScreenState extends State<LoginScreen> {
               ],
             ),
           ),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildPersonaCard({
-    required String id,
-    required String title,
-    required String subtitle,
-    required String username,
-    required String password,
-    required IconData icon,
-  }) {
-    final isSelected = _selectedPersona == id;
-
-    return InkWell(
-      onTap: () => _fillPersona(id, username, password),
-      borderRadius: BorderRadius.circular(14),
-      child: Container(
-        padding: const EdgeInsets.all(12),
-        decoration: BoxDecoration(
-          color: isSelected ? AppColors.primary : Colors.white,
-          borderRadius: BorderRadius.circular(14),
-          border: Border.all(
-            color: isSelected ? AppColors.primary : AppColors.borderLight,
-            width: isSelected ? 2 : 1,
-          ),
-          boxShadow: isSelected
-              ? [
-                  BoxShadow(
-                    color: AppColors.primary.withValues(alpha: 0.2),
-                    blurRadius: 8,
-                    offset: const Offset(0, 3),
-                  )
-                ]
-              : null,
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Icon(
-                  icon,
-                  size: 20,
-                  color: isSelected ? Colors.white : AppColors.primary,
-                ),
-                if (isSelected)
-                  const Icon(Icons.check_circle_rounded, size: 16, color: Colors.white),
-              ],
-            ),
-            const SizedBox(height: 8),
-            Text(
-              title,
-              style: TextStyle(
-                fontSize: 13,
-                fontWeight: FontWeight.w700,
-                color: isSelected ? Colors.white : AppColors.textPrimary,
-              ),
-            ),
-            const SizedBox(height: 2),
-            Text(
-              subtitle,
-              style: TextStyle(
-                fontSize: 11,
-                color: isSelected ? Colors.white.withValues(alpha: 0.8) : AppColors.textSecondary,
-              ),
-            ),
-          ],
         ),
       ),
     );

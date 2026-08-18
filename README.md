@@ -51,7 +51,7 @@ A mobile application built in Flutter for the HealthBridge healthcare appointmen
    - Email/Username and Password validation against local `assets/data/users.json`.
    - Clear error messages for empty fields or invalid credentials.
    - Password visibility toggle (`obscureText`).
-   - Quick-fill demo credentials chips for testing convenience.
+   - Manual credential sign-in for secure patient access.
 
 2. **Home Screen (`HomeScreen`)**:
    - Efficient `ListView.builder` displaying doctor records loaded from `assets/data/doctors.json`.
