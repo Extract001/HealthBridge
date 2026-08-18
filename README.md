@@ -1,6 +1,6 @@
 # HealthBridge - Healthcare Appointment Booking App (Flutter)
 
-A mobile application built in Flutter for the HealthBridge healthcare appointment system.
+A mobile application built in Flutter for the HealthBridge healthcare appointment system located inside `C:\Al-am\app\alamgir\speegile_assignment`.
 
 ---
 
@@ -11,19 +11,19 @@ A mobile application built in Flutter for the HealthBridge healthcare appointmen
                          │
                     LoginScreen
                          │
-                ┌────────▼────────┐
-                │  AuthService    │
-                │   users.json    │
-                └────────┬────────┘
+                 ┌───────▼───────┐
+                 │  AuthService  │
+                 │  users.json   │
+                 └───────┬───────┘
                          │
                        Valid
                          │
                     HomeScreen
                          │
-                ┌────────▼────────┐
-                │  DoctorService  │
-                │   doctors.json  │
-                └────────┬────────┘
+          ┌──────────────┼──────────────┐
+          │              │              │
+      Timeline        Coverage       Search ────► Profile
+      (Booked)       (Benefits)     (Doctors)     (Patient)
                          │
                     DoctorCard
                          │
@@ -40,7 +40,6 @@ A mobile application built in Flutter for the HealthBridge healthcare appointmen
                          │
                          ▼
              Done button -> HomeScreen
-             (Android Back -> AboutDoctorScreen)
 ```
 
 ---
@@ -48,34 +47,39 @@ A mobile application built in Flutter for the HealthBridge healthcare appointmen
 ## Screen Implementations
 
 1. **Login Screen (`LoginScreen`)**:
-   - Email/Username and Password validation against local `assets/data/users.json`.
-   - Clear error messages for empty fields or invalid credentials.
+   - Manual user credential sign-in validating against local `assets/data/users.json`.
+   - Error handling for empty fields or invalid credentials with inline error banners.
    - Password visibility toggle (`obscureText`).
-   - Manual credential sign-in for secure patient access.
+   - Hero branding badge header.
 
 2. **Home Screen (`HomeScreen`)**:
+   - IndexedStack navigation architecture with 4 main tabs (*Timeline*, *Coverage*, *Search*, *Profile*).
    - Efficient `ListView.builder` displaying doctor records loaded from `assets/data/doctors.json`.
-   - Dynamic Timeline tab displaying all newly booked appointments in real-time.
-   - Personal Information sheet under Profile displaying patient details, blood group, address, and emergency contact.
-   - Category filter pills (*All, In-Network, Nearest to Me, Specialists, Primary Care*).
-   - Reusable `DoctorCard` items displaying status badges, ratings, distance (km), next slot details, and action links.
+   - Category filter chip bar (*All*, *In-Network*, *Nearest to Me*, *Specialists*, *Primary Care*).
+   - Category icons: `In-Network` checkmark icon (`Icons.check_circle_rounded`) and `Nearest to Me` navigation icon (`Icons.near_me_outlined`).
+   - Automatic distance-based doctor sorting when *Nearest to Me* is selected.
+   - Interactive Filter & Sort bottom sheet supporting in-network filtering, minimum rating threshold, and sorting by Distance, Rating, or Reviews.
+   - Dynamic **Timeline tab** listing all newly booked appointments in real-time.
+   - **Personal Information Sheet** under Profile tab displaying patient attributes (*Sophia Martinez*, DOB, blood type, address, emergency contact).
+   - Reusable `DoctorCard` displaying status badges (*In-Network*, *Out-of-Network* with bullet dot), ratings, distance in km, uppercase `NEXT SLOT` box, and `View Profile & Book >` action link.
    - Promotional Urgent Care Wait Times banner card.
-   - Bottom navigation bar (*Timeline, Coverage, Search, Profile*).
 
 3. **About Doctor Screen (`AboutDoctorScreen`)**:
    - Receives selected `DoctorModel` passed from Home Screen.
-   - Full doctor profile header, badges, bio description, and expertise chips.
-   - Interactive Date Selector strip (*Mon OCT 23, Tue OCT 24, Wed OCT 25*) and Time Slot choice grid derived from doctor date objects.
-   - Call Front-Desk box and office location card with map graphic and Open in Google Maps action button.
+   - Full doctor profile header, badges, bio description, and expertise chips wrapped in `Wrap` layout to prevent overflow.
+   - Interactive Date Selector strip (*Mon OCT 23, Tue OCT 24, Wed OCT 25*) and Time Slot choice grid.
+   - Appointment date columns and pre-selected time slot dynamically aligned with doctor's Home Screen `nextSlot` availability timing.
+   - Call Front-Desk box and office location card with map graphic and Open in Google Maps launcher (`url_launcher`).
    - Scorecard with personalized recommendation rate, doctor name, and wait times per doctor.
-   - Sticky **"Book Appointment"** button, creating an `AppointmentModel` and navigating to confirmation.
+   - Sticky **"Book Appointment"** button creating an `AppointmentModel` and navigating to confirmation.
 
 4. **Appointment Confirmation Screen (`AppointmentConfirmationScreen`)**:
    - Receives booked `AppointmentModel` (Doctor, Date, Time).
-   - Automatically persists booked appointment into `AppointmentService`.
-   - Success header with checkmark badge.
+   - Automatically appends newly booked appointment to `AppointmentService` for real-time display on the Timeline tab.
+   - Success header with checkmark badge and formatted two-line confirmation message (*"Your appointment has been successfully\nscheduled."*).
    - Appointment detail summary card (Doctor name, specialty, date/time, office address).
-   - Fee breakdown (Consultation fee, insurance coverage, total due $0.00).
+   - Payment summary breakdown card with strikethrough Consultation Fee decoration, insurance coverage, total due `$0.00`, and **`FULLY COVERED`** green pill badge.
+   - Text message receipt details card (*"Send appointment receipt details to family or caregiver via text message"*).
    - UI-only preference toggles for Google Calendar auto-add & SMS reminders.
    - **Done** button returning to Home Screen, while Android system back button preserves normal stack navigation.
 
@@ -90,8 +94,13 @@ speegile_assignment/
 │   │   ├── users.json
 │   │   └── doctors.json
 │   └── images/
-│       ├── .gitkeep
-│       └── PLACE_YOUR_IMAGES_HERE.txt
+│       ├── dr_amar_rao.jpg
+│       ├── dr_anjali_rao.jpg
+│       ├── dr_elena_petrova.jpg
+│       ├── dr_james_wilson.jpg
+│       ├── dr_marcus_thorne.jpg
+│       ├── dr_sarah_chen.jpg
+│       └── user_profile.jpg
 │
 ├── lib/
 │   ├── constants/
@@ -109,12 +118,12 @@ speegile_assignment/
 │   │   └── appointment_service.dart
 │   │
 │   ├── widgets/
+│   │   ├── custom_bottom_nav.dart
 │   │   ├── custom_button.dart
 │   │   ├── custom_text_field.dart
 │   │   ├── doctor_card.dart
 │   │   ├── filter_chip_bar.dart
-│   │   ├── urgent_care_banner.dart
-│   │   └── custom_bottom_nav.dart
+│   │   └── urgent_care_banner.dart
 │   │
 │   ├── screens/
 │   │   ├── login_screen.dart
@@ -149,7 +158,7 @@ dependencies:
 
 ## Demo Credentials
 
-| Username / Email | Password | Name |
+| Username / Email | Password | Patient Name |
 | :--- | :--- | :--- |
 | `patient@healthbridge.com` | `password123` | Sophia Martinez |
 
@@ -169,7 +178,7 @@ dependencies:
    ```bash
    flutter test
    ```
-4. Run on Android device/emulator:
+4. Run on Android device or emulator:
    ```bash
    flutter run
    ```
@@ -177,25 +186,29 @@ dependencies:
    ```bash
    flutter build apk --debug
    ```
-   *Generated path:* `build/app/outputs/flutter-apk/app-debug.apk`
+   *Output path:* `build/app/outputs/flutter-apk/app-debug.apk`
 
 ---
 
 ## Verified Checklist
 
-- [x] Login validation against local JSON (`users.json`)
+- [x] Manual login validation against local JSON (`users.json`)
 - [x] Password visibility toggle & validation error handling
 - [x] Dynamic doctor listing using `ListView.builder` (`doctors.json`)
-- [x] Search & filter functionality
-- [x] Registered `assets/images/` directory for custom image files
-- [x] Passing selected `DoctorModel` to `AboutDoctorScreen`
-- [x] Interactive date & time slot selection creating `AppointmentModel`
-- [x] Appointment confirmation summary & cost breakdown
+- [x] Category filters (*All, In-Network, Nearest to Me, Specialists, Primary Care*) with distance-based sorting
+- [x] Out-of-Network and In-Network status badges with left bullet dot
+- [x] Uppercase `NEXT SLOT` box & `View Profile & Book >` action link
+- [x] Pre-selected appointment date/time slots aligned with Home Screen availability timing
+- [x] Personalized doctor scorecards (*Recommendation Rate, Wait Times*)
+- [x] Appointment confirmation summary, strikethrough fee decoration, and `FULLY COVERED` badge
 - [x] Dynamic appointment persistence to Timeline tab (`AppointmentService`)
-- [x] Personal information modal under Profile tab
+- [x] Personal information modal under Profile tab (*Sophia Martinez*)
 - [x] System back button preserves navigation hierarchy
 - [x] UI-only toggles for Google Calendar & SMS reminders
-- [x] Live map view & Open in Google Maps launcher
-- [x] No RenderFlex overflow issues
-- [x] `flutter analyze` & `flutter test` pass with 0 errors
+- [x] Live map view & Open in Google Maps launcher (`url_launcher`)
+- [x] Distance unit strictly enforced in `km`
+- [x] Fixed filter chip button sizes on tap
+- [x] Zero RenderFlex overflow issues
+- [x] Static analysis (`flutter analyze`) passes with 0 errors
+- [x] Unit tests (`flutter test`) pass 3/3 tests
 - [x] Debug APK compiled for testing (`app-debug.apk`)
