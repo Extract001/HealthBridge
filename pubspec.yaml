@@ -1,0 +1,39 @@
+name: speegile_assignment
+description: "A Flutter-based healthcare appointment application developed as part of a mobile developer assessment."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.11.3
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  google_fonts: ^6.2.1
+  intl: ^0.19.0
+  flutter_map: ^6.1.0
+  latlong2: ^0.9.0
+  url_launcher: ^6.3.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/data/doctors.json
+    - assets/data/users.json
+    - assets/images/dr_amar_rao.jpg
+    - assets/images/dr_anjali_rao.jpg
+    - assets/images/dr_elena_petrova.jpg
+    - assets/images/dr_james_wilson.jpg
+    - assets/images/dr_marcus_thorne.jpg
+    - assets/images/dr_sarah_chen.jpg
+    - assets/images/id_badge.jpg
+    - assets/images/men_smile.jpg
+    - assets/images/user_profile.jpg

@@ -1,0 +1,219 @@
+[
+  {
+    "id": "doc_1",
+    "name": "Dr. Amar Rao, MD",
+    "specialty": "Primary Care",
+    "category": "Primary Care",
+    "statusBadge": "Accepting New Patients",
+    "rating": 4.9,
+    "reviewCount": 53,
+    "distance": "1.2 km",
+    "nextSlot": "Available this Tuesday at 08:30 AM",
+    "inNetwork": true,
+    "topRated": true,
+    "latitude": 40.730610,
+    "longitude": -73.935242,
+    "image": "assets/images/dr_amar_rao.jpg",
+    "bio": "Board-certified internist specializing in holistic preventative care and chronic disease management. Committed to providing unhurried, patient-centered diagnostics.",
+    "expertiseTags": ["Primary Care", "15+ Yrs Exp."],
+    "acceptedInsurance": ["BLUE CROSS", "AETNA GOLD", "UNITEDHEALTH", "CIGNA PPO"],
+    "phone": "+1 (555) 123-4567",
+    "officeAddress": "1221 Health Plaza, Suite 400\nMedical District, New York, NY 10021",
+    "consultationFee": 240.0,
+    "insuranceCoverage": 240.0,
+    "recommendRate": "98%",
+    "avgWaitTime": "Avg 8 mins",
+    "availableDates": [
+      {
+        "dayOfWeek": "MON",
+        "dateFormatted": "OCT 23",
+        "slots": ["09:00 AM", "10:30 AM", "02:00 PM"]
+      },
+      {
+        "dayOfWeek": "TUE",
+        "dateFormatted": "OCT 24",
+        "slots": ["08:30 AM", "11:00 AM", "03:30 PM"]
+      },
+      {
+        "dayOfWeek": "WED",
+        "dateFormatted": "OCT 25",
+        "slots": ["09:00 AM", "12:30 PM", "04:15 PM"]
+      }
+    ]
+  },
+  {
+    "id": "doc_2",
+    "name": "Dr. Anjali Rao, MD",
+    "specialty": "Cardiology & Internal Medicine",
+    "category": "Specialists",
+    "statusBadge": "Accepting New Patients",
+    "rating": 4.9,
+    "reviewCount": 68,
+    "distance": "1.2 km",
+    "nextSlot": "Available this Friday at 10:30 AM",
+    "inNetwork": true,
+    "topRated": true,
+    "latitude": 40.735000,
+    "longitude": -73.940000,
+    "image": "assets/images/dr_anjali_rao.jpg",
+    "bio": "Leading cardiologist specializing in preventative cardiology, heart failure management, hypertension, and lipid disorders.",
+    "expertiseTags": ["Cardiology", "Preventative Care", "Heart Health"],
+    "acceptedInsurance": ["BLUE CROSS", "AETNA GOLD", "UNITEDHEALTH"],
+    "phone": "+1 (555) 234-5678",
+    "officeAddress": "123 Health Plaza, Suite 400\nMedical District, New York, NY 10001",
+    "consultationFee": 240.0,
+    "insuranceCoverage": 240.0,
+    "recommendRate": "99%",
+    "avgWaitTime": "Avg 6 mins",
+    "availableDates": [
+      {
+        "dayOfWeek": "MON",
+        "dateFormatted": "OCT 23",
+        "slots": ["09:30 AM", "10:30 AM", "02:40 PM"]
+      },
+      {
+        "dayOfWeek": "WED",
+        "dateFormatted": "OCT 25",
+        "slots": ["09:00 AM", "12:30 PM", "04:15 PM"]
+      }
+    ]
+  },
+  {
+    "id": "doc_3",
+    "name": "Dr. Marcus Thorne, DO",
+    "specialty": "Physical Therapy",
+    "category": "Specialists",
+    "statusBadge": "Accepting New Patients",
+    "rating": 4.8,
+    "reviewCount": 41,
+    "distance": "2.4 km",
+    "nextSlot": "Available this Monday at 09:00 AM",
+    "inNetwork": true,
+    "topRated": false,
+    "latitude": 37.774929,
+    "longitude": -122.419418,
+    "image": "assets/images/dr_marcus_thorne.jpg",
+    "bio": "Experienced osteopathic physician with over 12 years of clinical expertise in internal medicine, physical therapy, and adult wellness checks.",
+    "expertiseTags": ["Physical Therapy", "Internal Medicine"],
+    "acceptedInsurance": ["BLUE CROSS", "AETNA GOLD", "UNITEDHEALTH"],
+    "phone": "+1 (555) 891-2345",
+    "officeAddress": "789 Medical Center Way, Suite 210, San Francisco, CA 94102",
+    "consultationFee": 200.0,
+    "insuranceCoverage": 200.0,
+    "recommendRate": "95%",
+    "avgWaitTime": "Avg 12 mins",
+    "availableDates": [
+      {
+        "dayOfWeek": "MON",
+        "dateFormatted": "OCT 23",
+        "slots": ["07:00 AM", "10:00 AM", "01:30 PM"]
+      },
+      {
+        "dayOfWeek": "TUE",
+        "dateFormatted": "OCT 24",
+        "slots": ["08:30 AM", "11:00 AM", "04:00 PM"]
+      }
+    ]
+  },
+  {
+    "id": "doc_4",
+    "name": "Dr. Elena Petrova, MD",
+    "specialty": "Dermatology Specialist",
+    "category": "Specialists",
+    "statusBadge": "Out-of-Network",
+    "rating": 5.0,
+    "reviewCount": 88,
+    "distance": "0.8 km",
+    "nextSlot": "Available this Friday at 02:30 PM",
+    "inNetwork": false,
+    "topRated": true,
+    "latitude": 41.878113,
+    "longitude": -87.629799,
+    "image": "assets/images/dr_elena_petrova.jpg",
+    "bio": "Leading specialist in medical and cosmetic dermatology, skin cancer screenings, eczema treatments, and laser therapies.",
+    "expertiseTags": ["Dermatology", "Skin Care"],
+    "acceptedInsurance": ["BLUE CROSS", "CIGNA PPO"],
+    "phone": "+1 (555) 456-7890",
+    "officeAddress": "456 Skin & Health Institute, Suite 105, Chicago, IL 60611",
+    "consultationFee": 220.0,
+    "insuranceCoverage": 220.0,
+    "recommendRate": "97%",
+    "avgWaitTime": "Avg 5 mins",
+    "availableDates": [
+      {
+        "dayOfWeek": "THU",
+        "dateFormatted": "OCT 26",
+        "slots": ["10:00 AM", "01:00 PM", "03:30 PM"]
+      },
+      {
+        "dayOfWeek": "FRI",
+        "dateFormatted": "OCT 27",
+        "slots": ["09:00 AM", "02:30 PM", "04:30 PM"]
+      }
+    ]
+  },
+  {
+    "id": "doc_5",
+    "name": "Dr. James Wilson, MD",
+    "specialty": "Neurology Specialist",
+    "category": "Specialists",
+    "statusBadge": "Accepting New Patients",
+    "rating": 4.7,
+    "reviewCount": 12,
+    "distance": "4.1 km",
+    "nextSlot": "Available this Friday at 11:15 AM",
+    "inNetwork": true,
+    "topRated": false,
+    "latitude": 42.360081,
+    "longitude": -71.058884,
+    "image": "assets/images/dr_james_wilson.jpg",
+    "bio": "Neurologist focusing on brain and nerve health, migraines, neuropathy, and movement disorders.",
+    "expertiseTags": ["Neurology", "Nerve Care"],
+    "acceptedInsurance": ["UNITEDHEALTH", "CIGNA PPO"],
+    "phone": "+1 (555) 321-9876",
+    "officeAddress": "101 Respiratory Care Blvd, Suite 300, Boston, MA 02115",
+    "consultationFee": 250.0,
+    "insuranceCoverage": 250.0,
+    "recommendRate": "94%",
+    "avgWaitTime": "Avg 10 mins",
+    "availableDates": [
+      {
+        "dayOfWeek": "THU",
+        "dateFormatted": "OCT 26",
+        "slots": ["11:15 AM", "02:00 PM", "04:00 PM"]
+      }
+    ]
+  },
+  {
+    "id": "doc_6",
+    "name": "Dr. Sarah Chen, MD",
+    "specialty": "Pediatrician",
+    "category": "Primary Care",
+    "statusBadge": "Accepting New Patients",
+    "rating": 4.9,
+    "reviewCount": 64,
+    "distance": "3.5 km",
+    "nextSlot": "Available this Friday at 04:00 PM",
+    "inNetwork": true,
+    "topRated": true,
+    "latitude": 47.606209,
+    "longitude": -122.332071,
+    "image": "assets/images/dr_sarah_chen.jpg",
+    "bio": "Compassionate pediatrician specializing in newborn care, child development milestones, vaccinations, and adolescent medicine.",
+    "expertiseTags": ["Pediatrics", "Childhood Care"],
+    "acceptedInsurance": ["BLUE CROSS", "AETNA GOLD"],
+    "phone": "+1 (555) 654-3210",
+    "officeAddress": "333 Children's Way, Suite 500, Seattle, WA 98101",
+    "consultationFee": 190.0,
+    "insuranceCoverage": 190.0,
+    "recommendRate": "99%",
+    "avgWaitTime": "Avg 7 mins",
+    "availableDates": [
+      {
+        "dayOfWeek": "WED",
+        "dateFormatted": "OCT 25",
+        "slots": ["09:00 AM", "11:30 AM", "03:00 PM"]
+      }
+    ]
+  }
+]
