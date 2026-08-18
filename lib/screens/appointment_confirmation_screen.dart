@@ -140,14 +140,24 @@ class _AppointmentConfirmationScreenState extends State<AppointmentConfirmationS
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              doctor.name,
-                              style: AppStyles.headingSmall.copyWith(fontSize: 17),
+                            const Text(
+                              "PHYSICIAN",
+                              style: TextStyle(
+                                fontSize: 11,
+                                fontWeight: FontWeight.bold,
+                                color: AppColors.primary,
+                                letterSpacing: 0.8,
+                              ),
                             ),
                             const SizedBox(height: 4),
                             Text(
+                              doctor.name,
+                              style: AppStyles.headingSmall.copyWith(fontSize: 17, fontWeight: FontWeight.bold),
+                            ),
+                            const SizedBox(height: 2),
+                            Text(
                               doctor.specialty,
-                              style: AppStyles.bodySubtle,
+                              style: AppStyles.bodySubtle.copyWith(fontSize: 13),
                             ),
                           ],
                         ),
@@ -200,17 +210,17 @@ class _AppointmentConfirmationScreenState extends State<AppointmentConfirmationS
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              "Date & Time",
-                              style: AppStyles.caption.copyWith(fontWeight: FontWeight.w700),
+                              "DATE & TIME",
+                              style: AppStyles.caption.copyWith(fontWeight: FontWeight.w700, letterSpacing: 0.5),
                             ),
                             const SizedBox(height: 2),
                             Text(
                               appointment.dateFormatted,
-                              style: AppStyles.bodyMedium.copyWith(fontWeight: FontWeight.w600),
+                              style: AppStyles.bodyMedium.copyWith(fontWeight: FontWeight.bold, fontSize: 14),
                             ),
                             Text(
                               "${appointment.timeSlot} EST",
-                              style: AppStyles.bodySubtle,
+                              style: AppStyles.bodySubtle.copyWith(fontSize: 13),
                             ),
                           ],
                         ),
@@ -238,13 +248,21 @@ class _AppointmentConfirmationScreenState extends State<AppointmentConfirmationS
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              "Location",
-                              style: AppStyles.caption.copyWith(fontWeight: FontWeight.w700),
+                              "LOCATION",
+                              style: AppStyles.caption.copyWith(fontWeight: FontWeight.w700, letterSpacing: 0.5),
                             ),
                             const SizedBox(height: 2),
                             Text(
-                              "HealthBridge Medical Center\n${doctor.officeAddress}",
-                              style: AppStyles.bodyMedium.copyWith(height: 1.3),
+                              "HealthBridge Medical Center",
+                              style: AppStyles.bodyMedium.copyWith(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 14,
+                                color: AppColors.primaryDark,
+                              ),
+                            ),
+                            Text(
+                              doctor.officeAddress,
+                              style: AppStyles.bodyMedium.copyWith(height: 1.3, fontSize: 13, color: AppColors.textSecondary),
                             ),
                           ],
                         ),
