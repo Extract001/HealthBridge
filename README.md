@@ -1,6 +1,6 @@
 # HealthBridge - Healthcare Appointment Booking App (Flutter)
 
-A mobile application built in Flutter for the HealthBridge healthcare appointment system located inside `C:\Al-am\app\alamgir\speegile_assignment`.
+A mobile application built in Flutter for the HealthBridge healthcare appointment booking system located inside `C:\Al-am\app\alamgir\HealthBridge`.
 
 ---
 
@@ -44,6 +44,74 @@ A mobile application built in Flutter for the HealthBridge healthcare appointmen
 
 ---
 
+## Setup & Execution Instructions
+
+1. **Prerequisites**:
+   - Flutter SDK (v3.0.0 or higher)
+   - Android Studio / VS Code with Flutter extension
+   - Android Emulator or physical device
+
+2. **Installation Steps**:
+   ```bash
+   # Clone repository
+   git clone https://github.com/Extract001/HealthBridge.git
+   cd HealthBridge
+
+   # Fetch dependencies
+   flutter pub get
+   ```
+
+3. **Static Analysis & Testing**:
+   ```bash
+   # Run static code analysis
+   flutter analyze
+
+   # Run automated unit tests
+   flutter test
+   ```
+
+4. **Run Application**:
+   ```bash
+   # Launch application on connected device/emulator
+   flutter run
+   ```
+
+5. **Build Release / Debug APK**:
+   ```bash
+   # Build Android Debug APK
+   flutter build apk --debug
+   ```
+   *Output binary path:* `build/app/outputs/flutter-apk/app-debug.apk`
+
+---
+
+## Libraries & Packages Used
+
+```yaml
+dependencies:
+  flutter:
+    sdk: flutter
+  google_fonts: ^6.2.1   # Custom Google Typography (Inter/Poppins)
+  intl: ^0.19.0          # Date formatting & time parsing utilities
+  flutter_map: ^6.1.0    # Open-source interactive map rendering
+  latlong2: ^0.9.0       # Geographic latitude/longitude coordinates
+  url_launcher: ^6.3.0   # External URI launcher for Google Maps & phone calls
+```
+
+---
+
+## Assumptions Made During Development
+
+1. **Authentication Scope**: Patient authentication is validated locally against mock credentials stored in `assets/data/users.json` for patient persona **Sophia Martinez** (`patient@healthbridge.com` / `password123`).
+2. **In-Memory State Persistence**: Newly booked appointments are appended to shared in-memory state (`AppointmentService`) during the active session and rendered in real-time on the **Timeline tab**.
+3. **Insurance Co-Pay Standard**: In-network consultations assume 100% insurance coverage co-pay under the active *HealthBridge Gold* policy (#HBC-987456123), showing total due as `$0.00` with strikethrough fee decoration.
+4. **Distance Units**: Proximity and distance metrics across doctor cards are strictly standardized in kilometers (`km`).
+5. **Dynamic Time Slot Matching**: Pre-selected appointment date and time slots on the doctor profile page dynamically align with the specific `nextSlot` availability displayed on the Home Screen card.
+6. **External Map Launcher**: Tapping "Open in Google Maps" launches external device maps via `url_launcher` using standard lat/long coordinates.
+7. **System Back Navigation**: Android back button preserves normal Flutter navigator stack hierarchy without quitting the app unexpectedly.
+
+---
+
 ## Screen Implementations
 
 1. **Login Screen (`LoginScreen`)**:
@@ -77,7 +145,7 @@ A mobile application built in Flutter for the HealthBridge healthcare appointmen
    - Receives booked `AppointmentModel` (Doctor, Date, Time).
    - Automatically appends newly booked appointment to `AppointmentService` for real-time display on the Timeline tab.
    - Success header with checkmark badge and formatted two-line confirmation message (*"Your appointment has been successfully\nscheduled."*).
-   - Appointment detail summary card (Doctor name, specialty, date/time, office address).
+   - Appointment detail summary card (`PHYSICIAN` header, Doctor name, specialty, date/time, bold `HealthBridge Medical Center` location title).
    - Payment summary breakdown card with strikethrough Consultation Fee decoration, insurance coverage, total due `$0.00`, and **`FULLY COVERED`** green pill badge.
    - Text message receipt details card (*"Send appointment receipt details to family or caregiver via text message"*).
    - UI-only preference toggles for Google Calendar auto-add & SMS reminders.
@@ -88,7 +156,7 @@ A mobile application built in Flutter for the HealthBridge healthcare appointmen
 ## Project Structure
 
 ```
-speegile_assignment/
+HealthBridge/
 ├── assets/
 │   ├── data/
 │   │   ├── users.json
@@ -141,21 +209,6 @@ speegile_assignment/
 
 ---
 
-## Package Dependencies
-
-```yaml
-dependencies:
-  flutter:
-    sdk: flutter
-  google_fonts: ^6.2.1
-  intl: ^0.19.0
-  flutter_map: ^6.1.0
-  latlong2: ^0.9.0
-  url_launcher: ^6.3.0
-```
-
----
-
 ## Demo Credentials
 
 | Username / Email | Password | Patient Name |
@@ -164,34 +217,11 @@ dependencies:
 
 ---
 
-## Setup & Execution Instructions
-
-1. Install dependencies:
-   ```bash
-   flutter pub get
-   ```
-2. Run static analysis:
-   ```bash
-   flutter analyze
-   ```
-3. Run unit tests:
-   ```bash
-   flutter test
-   ```
-4. Run on Android device or emulator:
-   ```bash
-   flutter run
-   ```
-5. Build Android Debug APK (for testing):
-   ```bash
-   flutter build apk --debug
-   ```
-   *Output path:* `build/app/outputs/flutter-apk/app-debug.apk`
-
----
-
 ## Verified Checklist
 
+- [x] Clear project setup and execution steps (`flutter pub get`, `flutter run`, `flutter analyze`, `flutter test`)
+- [x] Complete list of libraries and package dependencies (`google_fonts`, `intl`, `flutter_map`, `latlong2`, `url_launcher`)
+- [x] Explicit assumptions made during development
 - [x] Manual login validation against local JSON (`users.json`)
 - [x] Password visibility toggle & validation error handling
 - [x] Dynamic doctor listing using `ListView.builder` (`doctors.json`)
