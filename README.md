@@ -4,6 +4,12 @@ A mobile application built in Flutter for the HealthBridge healthcare appointmen
 
 ---
 
+### 📲 Direct Release APK Download
+Anyone can download and install the latest release APK directly from GitHub:
+👉 **[Download app-release.apk (48.9 MB)](https://github.com/Extract001/HealthBridge/raw/main/app-release.apk)**
+
+---
+
 ## Application Architecture & Navigation Flow
 
 ```
@@ -78,10 +84,10 @@ A mobile application built in Flutter for the HealthBridge healthcare appointmen
 
 5. **Build Release / Debug APK**:
    ```bash
-   # Build Android Debug APK
-   flutter build apk --debug
+   # Build Android Release APK
+   flutter build apk --release
    ```
-   *Output binary path:* `build/app/outputs/flutter-apk/app-debug.apk`
+   *Output binary path:* [`app-release.apk`](https://github.com/Extract001/HealthBridge/raw/main/app-release.apk)
 
 ---
 
@@ -96,6 +102,7 @@ dependencies:
   flutter_map: ^6.1.0    # Open-source interactive map rendering
   latlong2: ^0.9.0       # Geographic latitude/longitude coordinates
   url_launcher: ^6.3.0   # External URI launcher for Google Maps & phone calls
+  flutter_launcher_icons: ^0.13.1 # Native app launcher icon generator
 ```
 
 ---
@@ -157,11 +164,14 @@ dependencies:
 
 ```
 HealthBridge/
+├── app-release.apk                 # Production Release APK Binary
+├── HealthBridge_Application_Screenshots.pdf # PDF Application Documentation
 ├── assets/
 │   ├── data/
 │   │   ├── users.json
 │   │   └── doctors.json
 │   └── images/
+│       ├── Healthbridge_logo.jpg
 │       ├── dr_amar_rao.jpg
 │       ├── dr_anjali_rao.jpg
 │       ├── dr_elena_petrova.jpg
@@ -219,26 +229,11 @@ HealthBridge/
 
 ## Verified Checklist
 
+- [x] Direct release APK download link on GitHub repository
+- [x] Tracked app-release.apk binary in repository root
 - [x] Clear project setup and execution steps (`flutter pub get`, `flutter run`, `flutter analyze`, `flutter test`)
-- [x] Complete list of libraries and package dependencies (`google_fonts`, `intl`, `flutter_map`, `latlong2`, `url_launcher`)
+- [x] Complete list of libraries and package dependencies (`google_fonts`, `intl`, `flutter_map`, `latlong2`, `url_launcher`, `flutter_launcher_icons`)
 - [x] Explicit assumptions made during development
-- [x] Manual login validation against local JSON (`users.json`)
-- [x] Password visibility toggle & validation error handling
-- [x] Dynamic doctor listing using `ListView.builder` (`doctors.json`)
-- [x] Category filters (*All, In-Network, Nearest to Me, Specialists, Primary Care*) with distance-based sorting
-- [x] Out-of-Network and In-Network status badges with left bullet dot
-- [x] Uppercase `NEXT SLOT` box & `View Profile & Book >` action link
-- [x] Pre-selected appointment date/time slots aligned with Home Screen availability timing
-- [x] Personalized doctor scorecards (*Recommendation Rate, Wait Times*)
-- [x] Appointment confirmation summary, strikethrough fee decoration, and `FULLY COVERED` badge
-- [x] Dynamic appointment persistence to Timeline tab (`AppointmentService`)
-- [x] Personal information modal under Profile tab (*Sophia Martinez*)
-- [x] System back button preserves navigation hierarchy
-- [x] UI-only toggles for Google Calendar & SMS reminders
-- [x] Live map view & Open in Google Maps launcher (`url_launcher`)
-- [x] Distance unit strictly enforced in `km`
-- [x] Fixed filter chip button sizes on tap
-- [x] Zero RenderFlex overflow issues
 - [x] Static analysis (`flutter analyze`) passes with 0 errors
 - [x] Unit tests (`flutter test`) pass 3/3 tests
-- [x] Debug APK compiled for testing (`app-debug.apk`)
+- [x] Release APK compiled for testing (`app-release.apk`)
