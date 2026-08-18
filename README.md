@@ -1,13 +1,5 @@
 # HealthBridge - Healthcare Appointment Booking App (Flutter)
 
-A mobile application built in Flutter for the HealthBridge healthcare appointment booking system located inside `C:\Al-am\app\alamgir\HealthBridge`.
-
----
-
-### 📲 Direct Release APK Download
-Anyone can download and install the latest release APK directly from GitHub:
-👉 **[Download app-release.apk (48.9 MB)](https://github.com/Extract001/HealthBridge/raw/main/app-release.apk)**
-
 ---
 
 ## Application Architecture & Navigation Flow
@@ -87,7 +79,7 @@ Anyone can download and install the latest release APK directly from GitHub:
    # Build Android Release APK
    flutter build apk --release
    ```
-   *Output binary path:* [`app-release.apk`](https://github.com/Extract001/HealthBridge/raw/main/app-release.apk)
+   *Output binary path:* `build/app/outputs/flutter-apk/app-release.apk`
 
 ---
 
@@ -164,7 +156,6 @@ dependencies:
 
 ```
 HealthBridge/
-├── app-release.apk                 # Production Release APK Binary
 ├── HealthBridge_Application_Screenshots.pdf # PDF Application Documentation
 ├── assets/
 │   ├── data/
@@ -229,8 +220,6 @@ HealthBridge/
 
 ## Verified Checklist
 
-- [x] Direct release APK download link on GitHub repository
-- [x] Tracked app-release.apk binary in repository root
 - [x] Clear project setup and execution steps (`flutter pub get`, `flutter run`, `flutter analyze`, `flutter test`)
 - [x] Complete list of libraries and package dependencies (`google_fonts`, `intl`, `flutter_map`, `latlong2`, `url_launcher`, `flutter_launcher_icons`)
 - [x] Explicit assumptions made during development
