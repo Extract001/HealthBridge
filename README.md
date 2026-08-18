@@ -152,7 +152,6 @@ dependencies:
 | Username / Email | Password | Name |
 | :--- | :--- | :--- |
 | `patient@healthbridge.com` | `password123` | Sophia Martinez |
-| `demo` | `demo123` | Demo User |
 
 ---
 
