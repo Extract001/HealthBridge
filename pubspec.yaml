@@ -32,16 +32,7 @@ flutter_launcher_icons:
 flutter:
   uses-material-design: true
 
+
   assets:
-    - assets/data/doctors.json
-    - assets/data/users.json
-    - assets/images/Healthbridge_logo.jpg
-    - assets/images/dr_amar_rao.jpg
-    - assets/images/dr_anjali_rao.jpg
-    - assets/images/dr_elena_petrova.jpg
-    - assets/images/dr_james_wilson.jpg
-    - assets/images/dr_marcus_thorne.jpg
-    - assets/images/dr_sarah_chen.jpg
-    - assets/images/id_badge.jpg
-    - assets/images/men_smile.jpg
-    - assets/images/user_profile.jpg
+    - assets/data/
+    - assets/images/
